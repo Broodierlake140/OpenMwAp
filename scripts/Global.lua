@@ -4,7 +4,7 @@ local  player = world.players[1]
 local types = require("openmw.types")   
 local inventory = types.Actor.inventory(player) 
 
-local ap_Items = {1, "chargen dagger", 2, "MS_FargothRing"}
+local ap_Items = {1, "chargen dagger", 2, "MS_FargothRing", 3, "Dagger of Judgement", 4, "bookskill_unarmored4"}
 
 
 Give = function(itemid, count)
@@ -16,7 +16,7 @@ Give = function(itemid, count)
 Remove = function()
         for i = 2,10000,2
         do
-          checkinvitem = inventory:find(value)
+          checkinvitem = inventory:find("ap_" .. tostring(i))
           if checkinvitem ~= nil then
             checkinvitem:remove(1)
             ---Temp CHecking giving this way
